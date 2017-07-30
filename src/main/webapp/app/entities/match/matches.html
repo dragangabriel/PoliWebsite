@@ -1,0 +1,76 @@
+<div>
+    <h2>Matches</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="match.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Match
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hometeam"><span>Echipa gazdă</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="awayteam"><span>Echipa oaspete</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="homegoals"><span>Goluri gazda</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="awaygoals"><span>Goluri oaspete</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="location"><span>Locație</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span>Descriere (etapă)</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="matchdatetime"><span>Data meciului</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="matchcompetition.id"><span>Competiție</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="match in vm.matches track by match.id">
+                    <td><a ui-sref="match-detail({id:match.id})">{{match.id}}</a></td>
+                    <td>{{match.hometeam}}</td>
+                    <td>{{match.awayteam}}</td>
+                    <td>{{match.homegoals}}</td>
+                    <td>{{match.awaygoals}}</td>
+                    <td>{{match.location}}</td>
+                    <td>{{match.description}}</td>
+                    <td>{{match.matchdatetime | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="competition-detail({id:match.matchcompetition.id})">{{match.matchcompetition.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="match-detail({id:match.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="match.edit({id:match.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="match.delete({id:match.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

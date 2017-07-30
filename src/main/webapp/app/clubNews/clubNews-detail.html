@@ -1,0 +1,19 @@
+<div>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row">
+        <div class="col-sm-12 text-danger" style="margin-top: 1vw"><small>{{vm.news.createdDate | date:'hh/MM/yyyy HH:mm'}}</small></div>
+        <h4 class="text-center">{{vm.news.title}}</h4>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <img data-ng-src="{{'data:' +vm. news.imageContentType + ';base64,' + vm.news.image}}" class="clubNewsImage" alt="news image"
+            />
+        </div>
+    </div>
+    <div class="row" style="margin-top: 3vw">
+        <div class="col-sm-12">
+            <span ng-bind-html="vm.news.content | to_trusted"></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="row">
+
+    <div class="col-md-8 col-sm-12">
+        <ul class="bxslider">
+            <li class="sliderImage no-padding" ng-repeat="news in vm.news">
+                <img data-ng-src="{{'data:' + news.imageContentType + ';base64,' + news.image}}" class="img-responsive" alt="news image"
+                />
+                <h4 ui-sref="clubNews-detail({id:news.id})">{{news.title}}</h4>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="row">
+            <div class="col-md-12 matchWell" ng-repeat="match in vm.matches | orderBy:'matchdatetime':'reverse'">
+                <div class="row margin-bottom-05 text-center">{{match.matchcompetition.name}}, {{match.description}}</div>
+                <div class="row margin-bottom-05 text-center">
+                    <div class="col-md-4"><label>{{match.hometeam}}</label></div>
+                    <div class="col-md-4">{{match.homegoals}} : {{match.awaygoals}}</div>
+                    <div class="col-md-4"><label>{{match.awayteam}}</label></div>
+                </div>
+                <div class="row text-center margin-top-10">
+                    Stadion {{match.location}}. {{match.matchdatetime | date:'dd/MM/yyyy HH:mm'}}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-default btn-block" ui-sref="clubMatches">Vezi toate meciurile</button>
+            </div>
+        </div>
+        <div class="row" class="leagueTableWell" style="margin-top: 15px">
+            <table class="jh-table table">
+                <thead ng-style="{'visibility' : vm.leagueTables.length > 0 ? 'visible' : 'hidden'}">
+                    <tr class="leagueTableWell">
+                        <th><span>Poziția</span></th>
+                        <th><span>Denumirea echipei</span></th>
+                        <th><span>Meciuri jucate</span></th>
+                        <th><span>Puncte</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="leagueTable in vm.leagueTables | orderBy:'position'" ng-style="setFontWeight(leagueTable)" class="leagueTableWell">
+                        <td>{{leagueTable.position}}</td>
+                        <td>{{leagueTable.teamname}}</td>
+                        <td>{{leagueTable.played}}</td>
+                        <td>{{leagueTable.points}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"> <button type="button" class="btn btn-default btn-block" ui-sref="clubRanking">Vezi clasamentul complet</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<hr style="border: 2px solid black"/>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img src="content/images/upb.png" alt="logo" style="max-width:100px; max-height:100px" />
+    </div>
+</div>

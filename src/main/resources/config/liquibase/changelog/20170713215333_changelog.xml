@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Gabriel (generated)" id="1499982820224-1">
+        <createTable tableName="jhi_match">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_matchPK"/>
+            </column>
+            <column name="awaygoals" type="INT"/>
+            <column name="awayteam" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="homegoals" type="INT"/>
+            <column name="hometeam" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="matchdatetime" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="matchcompetition_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Gabriel (generated)" id="1499982820224-2">
+        <addForeignKeyConstraint baseColumnNames="matchcompetition_id" baseTableName="jhi_match" constraintName="FKdcqjtufucrk12op7hfnxcyrom" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="competition"/>
+    </changeSet>
+    <changeSet author="Gabriel (generated)" id="1499982820224-3">
+        <dropUniqueConstraint constraintName="user_id" tableName="jhi_social_user_connection"/>
+    </changeSet>
+    <changeSet author="Gabriel (generated)" id="1499982820224-4">
+        <dropUniqueConstraint constraintName="user_id_2" tableName="jhi_social_user_connection"/>
+    </changeSet>
+</databaseChangeLog>

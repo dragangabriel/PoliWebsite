@@ -1,0 +1,52 @@
+
+<div>
+    <h2><span>Staff</span> {{vm.staff.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Fullname</span></dt>
+        <dd>
+            <span>{{vm.staff.fullname}}</span>
+        </dd>
+        <dt><span>Priority</span></dt>
+        <dd>
+            <span>{{vm.staff.priority}}</span>
+        </dd>
+        <dt><span>Placeofbirth</span></dt>
+        <dd>
+            <span>{{vm.staff.placeofbirth}}</span>
+        </dd>
+        <dt><span>Dateofbirth</span></dt>
+        <dd>
+            <span>{{vm.staff.dateofbirth | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Previousclubs</span></dt>
+        <dd>
+            <span>{{vm.staff.previousclubs}}</span>
+        </dd>
+        <dt><span>Image</span></dt>
+        <dd>
+            <div ng-if="vm.staff.image">
+                <a ng-click="vm.openFile(vm.staff.imageContentType, vm.staff.image)">
+                    <img data-ng-src="{{'data:' + vm.staff.imageContentType + ';base64,' + vm.staff.image}}" style="max-width: 100%;" alt="staff image"/>
+                </a>
+                {{vm.staff.imageContentType}}, {{vm.byteSize(vm.staff.image)}}
+            </div>
+        </dd>
+        <dt><span>Staffjob</span></dt>
+        <dd>
+            <a ui-sref="job-detail({id:vm.staff.staffjob.id})">{{vm.staff.staffjob.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="staff-detail.edit({id:vm.staff.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

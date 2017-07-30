@@ -1,0 +1,81 @@
+<div>
+    <h2>Players</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="player.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Player
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fullname"><span>Fullname</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="priority"><span>Priority</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dateofbirth"><span>Dateofbirth</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shirtno"><span>Shirtno</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="previousclubs"><span>Previousclubs</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="placeofbirth"><span>Placeofbirth</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="image"><span>Image</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="playerposition.id"><span>Playerposition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="player in vm.players track by player.id">
+                    <td><a ui-sref="player-detail({id:player.id})">{{player.id}}</a></td>
+                    <td>{{player.fullname}}</td>
+                    <td>{{player.priority}}</td>
+                        <td>{{player.dateofbirth | date:'mediumDate'}}</td>
+                    <td>{{player.shirtno}}</td>
+                    <td>{{player.previousclubs}}</td>
+                    <td>{{player.placeofbirth}}</td>
+                    <td>
+                        <a ng-if="player.image" ng-click="vm.openFile(player.imageContentType, player.image)">
+                            <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" style="max-height: 30px;" alt="player image"/>
+                        </a>
+                        <span ng-if="player.image">{{player.imageContentType}}, {{vm.byteSize(player.image)}}</span>
+                    </td>
+                    <td>
+                        <a ui-sref="position-detail({id:player.playerposition.id})">{{player.playerposition.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="player-detail({id:player.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="player.edit({id:player.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="player.delete({id:player.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

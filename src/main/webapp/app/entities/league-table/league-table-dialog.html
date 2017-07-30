@@ -1,0 +1,172 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myLeagueTableLabel">Create or edit a League Table</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.leagueTable.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.leagueTable.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_position">Poziție</label>
+            <input type="number" class="form-control" name="position" id="field_position"
+                    ng-model="vm.leagueTable.position"
+                    required/>
+            <div ng-show="editForm.position.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.position.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.position.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_teamname">Denumire echipă</label>
+            <input type="text" class="form-control" name="teamname" id="field_teamname"
+                    ng-model="vm.leagueTable.teamname"
+                    required/>
+            <div ng-show="editForm.teamname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.teamname.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_played">Meciuri jucate</label>
+            <input type="number" class="form-control" name="played" id="field_played"
+                    ng-model="vm.leagueTable.played"
+                    required/>
+            <div ng-show="editForm.played.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.played.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.played.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_wins">Victorii</label>
+            <input type="number" class="form-control" name="wins" id="field_wins"
+                    ng-model="vm.leagueTable.wins"
+                    required/>
+            <div ng-show="editForm.wins.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.wins.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.wins.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_draws">Egaluri</label>
+            <input type="number" class="form-control" name="draws" id="field_draws"
+                    ng-model="vm.leagueTable.draws"
+                    required/>
+            <div ng-show="editForm.draws.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.draws.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.draws.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_losses">înfrângeri</label>
+            <input type="number" class="form-control" name="losses" id="field_losses"
+                    ng-model="vm.leagueTable.losses"
+                    required/>
+            <div ng-show="editForm.losses.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.losses.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.losses.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_goalsfor">Goluri marcate</label>
+            <input type="number" class="form-control" name="goalsfor" id="field_goalsfor"
+                    ng-model="vm.leagueTable.goalsfor"
+                    required/>
+            <div ng-show="editForm.goalsfor.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.goalsfor.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.goalsfor.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_goalsagainst">Goluri primite</label>
+            <input type="number" class="form-control" name="goalsagainst" id="field_goalsagainst"
+                    ng-model="vm.leagueTable.goalsagainst"
+                    required/>
+            <div ng-show="editForm.goalsagainst.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.goalsagainst.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.goalsagainst.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_points">Puncte</label>
+            <input type="number" class="form-control" name="points" id="field_points"
+                    ng-model="vm.leagueTable.points"
+                    required/>
+            <div ng-show="editForm.points.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.points.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.points.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_leaguetablecompetition">Competiție</label>
+            <select class="form-control" id="field_leaguetablecompetition" name="leaguetablecompetition" ng-model="vm.leagueTable.leaguetablecompetition" ng-options="competition as competition.name for competition in vm.competitions track by competition.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

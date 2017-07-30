@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "externalUrl",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170713060336",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "partner",
+    "pagination": "pager"
+}

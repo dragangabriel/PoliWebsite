@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity LeagueTable.
+    -->
+    <changeSet id="20170710163346-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="leaguetablecompetition_id"
+                                 baseTableName="league_table"
+                                 constraintName="fk_league_table_leaguetablecompetition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="competition"/>
+
+    </changeSet>
+</databaseChangeLog>

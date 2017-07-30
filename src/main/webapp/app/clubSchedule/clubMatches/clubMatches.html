@@ -1,0 +1,21 @@
+<div ng-style="{'visibility' : vm.matches.length > 0 ? 'visible' : 'hidden'}"> 
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="row">
+        <div class="col-md-12 matchWell" ng-repeat="match in vm.matches | orderBy:'matchdatetime':'reverse'">
+                <div class="row margin-bottom-05 text-center">{{match.matchcompetition.name}}, {{match.description}}</div>
+                <div class="row margin-bottom-05 text-center">
+                    <div class="col-md-4"><label>{{match.hometeam}}</label></div>
+                    <div class="col-md-4">{{match.homegoals}} : {{match.awaygoals}}</div>
+                    <div class="col-md-4"><label>{{match.awayteam}}</label></div>
+                </div>
+                <div class="row text-center margin-top-10">
+                    Stadion {{match.location}}. {{match.matchdatetime | date:'dd/MM/yyyy HH:mm'}}
+                </div>
+            </div>
+        <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+    </div>
+</div>
+<div ng-style="{'visibility' : vm.matches.length == 0 ? 'visible' : 'hidden'}">
+    Pagina in lucru...
+</div>

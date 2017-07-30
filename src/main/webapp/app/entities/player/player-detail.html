@@ -1,0 +1,56 @@
+
+<div>
+    <h2><span>Player</span> {{vm.player.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Fullname</span></dt>
+        <dd>
+            <span>{{vm.player.fullname}}</span>
+        </dd>
+        <dt><span>Priority</span></dt>
+        <dd>
+            <span>{{vm.player.priority}}</span>
+        </dd>
+        <dt><span>Dateofbirth</span></dt>
+        <dd>
+            <span>{{vm.player.dateofbirth | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Shirtno</span></dt>
+        <dd>
+            <span>{{vm.player.shirtno}}</span>
+        </dd>
+        <dt><span>Previousclubs</span></dt>
+        <dd>
+            <span>{{vm.player.previousclubs}}</span>
+        </dd>
+        <dt><span>Placeofbirth</span></dt>
+        <dd>
+            <span>{{vm.player.placeofbirth}}</span>
+        </dd>
+        <dt><span>Image</span></dt>
+        <dd>
+            <div ng-if="vm.player.image">
+                <a ng-click="vm.openFile(vm.player.imageContentType, vm.player.image)">
+                    <img data-ng-src="{{'data:' + vm.player.imageContentType + ';base64,' + vm.player.image}}" style="max-width: 100%;" alt="player image"/>
+                </a>
+                {{vm.player.imageContentType}}, {{vm.byteSize(vm.player.image)}}
+            </div>
+        </dd>
+        <dt><span>Playerposition</span></dt>
+        <dd>
+            <a ui-sref="position-detail({id:vm.player.playerposition.id})">{{vm.player.playerposition.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="player-detail.edit({id:vm.player.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,75 @@
+<div>
+    <h2>News</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="news.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new News
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span>Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="image"><span>Image</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="videoUrl"><span>Video Url</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="externalUrl"><span>External Url</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="createdDate"><span>Created Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="content"><span>Content</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="news in vm.news track by news.id">
+                    <td><a ui-sref="news-detail({id:news.id})">{{news.id}}</a></td>
+                    <td>{{news.title}}</td>
+                    <td>
+                        <a ng-if="news.image" ng-click="vm.openFile(news.imageContentType, news.image)">
+                            <img data-ng-src="{{'data:' + news.imageContentType + ';base64,' + news.image}}" style="max-height: 30px;" alt="news image"/>
+                        </a>
+                        <span ng-if="news.image">{{news.imageContentType}}, {{vm.byteSize(news.image)}}</span>
+                    </td>
+                    <td>{{news.videoUrl}}</td>
+                    <td>{{news.externalUrl}}</td>
+                    <td>{{news.createdDate | date:'medium'}}</td>
+                    <td ng-bind-html="news.content | to_trusted"></td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="news-detail({id:news.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="news.edit({id:news.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="news.delete({id:news.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

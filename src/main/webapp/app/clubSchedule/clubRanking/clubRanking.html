@@ -1,0 +1,36 @@
+<div  ng-style="{'visibility' : vm.leagueTables.length > 0 ? 'visible' : 'hidden'}">
+    <jhi-alert></jhi-alert>    
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="position"><span>Poziția</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span>Denumirea echipei</span></th>
+                    <th jh-sort-by="played"><span>Meciuri jucate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="wins"><span>Victorii</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="draws"><span>Egaluri</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="losses"><span>Înfrângeri</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="goalsfor"><span>Goluri marcate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="goalsagainst"><span>Goluri primite</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="points"><span>Puncte</span> <span class="glyphicon glyphicon-sort"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="leagueTable in vm.leagueTables" ng-style="setFontWeight(leagueTable)">
+                    <td>{{leagueTable.position}}</td>
+                    <td>{{leagueTable.teamname}}</td>
+                    <td>{{leagueTable.played}}</td>
+                    <td>{{leagueTable.wins}}</td>
+                    <td>{{leagueTable.draws}}</td>
+                    <td>{{leagueTable.losses}}</td>
+                    <td>{{leagueTable.goalsfor}}</td>
+                    <td>{{leagueTable.goalsagainst}}</td>
+                    <td>{{leagueTable.points}}</td>                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div ng-style="{'visibility' : vm.leagueTables.length == 0 ? 'visible' : 'hidden'}">
+    Pagina in lucru...
+</div>

@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Match</span> {{vm.match.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Hometeam</span></dt>
+        <dd>
+            <span>{{vm.match.hometeam}}</span>
+        </dd>
+        <dt><span>Awayteam</span></dt>
+        <dd>
+            <span>{{vm.match.awayteam}}</span>
+        </dd>
+        <dt><span>Homegoals</span></dt>
+        <dd>
+            <span>{{vm.match.homegoals}}</span>
+        </dd>
+        <dt><span>Awaygoals</span></dt>
+        <dd>
+            <span>{{vm.match.awaygoals}}</span>
+        </dd>
+        <dt><span>Location</span></dt>
+        <dd>
+            <span>{{vm.match.location}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.match.description}}</span>
+        </dd>
+        <dt><span>Matchdatetime</span></dt>
+        <dd>
+            <span>{{vm.match.matchdatetime | date:'medium'}}</span>
+        </dd>
+        <dt><span>Matchcompetition</span></dt>
+        <dd>
+            <a ui-sref="competition-detail({id:vm.match.matchcompetition.id})">{{vm.match.matchcompetition.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="match-detail.edit({id:vm.match.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710162744_added_entity_Season.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710162834_added_entity_Competition.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710163346_added_entity_LeagueTable.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710164239_added_entity_Match.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710170712_added_entity_Position.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710171011_added_entity_Player.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710171645_added_entity_Job.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710171901_added_entity_Staff.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710173141_added_entity_News.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170713060336_added_entity_Partner.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170710162834_added_entity_constraints_Competition.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710163346_added_entity_constraints_LeagueTable.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710164239_added_entity_constraints_Match.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710171011_added_entity_constraints_Player.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170710171901_added_entity_constraints_Staff.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

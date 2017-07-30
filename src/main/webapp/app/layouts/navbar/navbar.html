@@ -1,0 +1,299 @@
+<nav class="navbar navbar-inverse bg-primary" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="col-xs-12 visible-xs">
+                <a href="https://www.facebook.com/AcsuPoliBucuresti">  <img class="socialMediaImage" src="content/images/facebook.png" alt="logo" /></a>
+                <a href="https://www.instagram.com/acsupolibucuresti/">    <img class="socialMediaImage" src="content/images/instagram.png" alt="logo" /></a>
+                <a href="https://www.youtube.com/channel/UC2SqqZKAJxTvuoczuyQD5mw">  <img class="socialMediaImage" src="content/images/youtube.png" alt="logo" /></a>
+                <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </div>
+        </div>
+        <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <div class="col-sm-12 hidden-xs">
+                        <a href="https://www.facebook.com/AcsuPoliBucuresti"> <img class="socialMediaImage" src="content/images/facebook.png" alt="logo" /></a>
+                        <a href="https://www.instagram.com/acsupolibucuresti/">     <img class="socialMediaImage" src="content/images/instagram.png" alt="logo" /></a>
+                        <a href="https://www.youtube.com/channel/UC2SqqZKAJxTvuoczuyQD5mw">    <img class="socialMediaImage" src="content/images/youtube.png" alt="logo" /></a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ui-sref-active="active">
+                    <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="hidden-sm">Acasă</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="clubNews" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        <span class="hidden-sm">Știri</span>
+                    </a>
+                </li>
+           <!--     <li ng-class="{active: vm.$state.includes('club')}" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="club-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-copyright-mark"></span>
+                            <span class="hidden-sm">
+                                Club
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="clubHistory" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;
+                                    <span>Istoric</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="clubStadium" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;
+                                    <span>Stadion</span>
+                                </a>
+                        </li>
+                    </ul>
+                </li>-->
+                <li ng-class="{active: vm.$state.includes('clubTeam')}" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="team-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-blackboard"></span>
+                            <span class="hidden-sm">
+                                Echipă
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="clubPlayers" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;
+                                    <span>Jucatori</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="clubStaff" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;
+                                    <span>Staff</span>
+                                </a>
+                        </li>
+                    </ul>
+                </li>
+                <li ng-class="{active: vm.$state.includes('clubSchedule')}" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="schedule-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            <span class="hidden-sm">
+                                Program
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="clubMatches" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;
+                                    <span>Meciuri</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="clubRanking" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;
+                                    <span>Clasament</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="clubPartners" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-lock"></span>
+                        <span class="hidden-sm">Parteneri</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="clubContact" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        <span class="hidden-sm">Contact</span>
+                    </a>
+                </li>
+                <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+                <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-sm">
+                                Setări generale
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="season" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Sezon</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="competition" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Competiții</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="league-table" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Clasamente</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="match" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Meciuri</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="position" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Poziții jucători</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="player" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Jucători</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="job" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Poziții staff</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="staff" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Staff</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="news" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Știri</span>
+                                </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="partner" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Parteneri</span>
+                                </a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="xxx" ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer" style="display:none">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="hidden-sm">
+                                Contul meu
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a ui-sref="settings" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-wrench"></span>&nbsp;
+                                <span>Setări</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a ui-sref="password" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-lock"></span>&nbsp;
+                                <span>Parolă</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a href="" ng-click="vm.logout()" id="logout">
+                                <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                                <span>Deconectare</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="false">
+                            <a href="" ng-click="vm.login()" id="login">
+                                <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                                <span>Conectare</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="false">
+                            <a ui-sref="register" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
+                                <span>Înregistrare</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li ng-class="{active: vm.$state.includes('admin')}" ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-tower"></span>
+                            <span class="hidden-sm">Administration</span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="user-management" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-user"></span>&nbsp;
+                                <span>User management</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
+                                <span>Metrics</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="jhi-health" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-heart"></span>&nbsp;
+                                <span>Health</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="jhi-configuration" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span>Configuration</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="audits" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-bell"></span>&nbsp;
+                                <span>Audits</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="logs" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Logs</span>
+                            </a>
+                        </li>
+                        <li ng-show="vm.swaggerEnabled" ui-sref-active="active">
+                            <a ui-sref="docs" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-book"></span>&nbsp;
+                                <span>API</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
