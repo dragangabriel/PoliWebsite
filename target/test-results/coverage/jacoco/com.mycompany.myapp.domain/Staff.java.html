@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ro"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Staff.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Poli</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.myapp.domain</a> &gt; <span class="el_source">Staff.java</span></div><h1>Staff.java</h1><pre class="source lang-java linenums">package com.mycompany.myapp.domain;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Objects;
+
+/**
+ * A Staff.
+ */
+@Entity
+@Table(name = &quot;staff&quot;)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+<span class="fc" id="L18">public class Staff implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    @Column(name = &quot;fullname&quot;, nullable = false)
+    private String fullname;
+
+    @NotNull
+    @Column(name = &quot;priority&quot;, nullable = false)
+    private Integer priority;
+
+    @NotNull
+    @Column(name = &quot;placeofbirth&quot;, nullable = false)
+    private String placeofbirth;
+
+    @NotNull
+    @Column(name = &quot;dateofbirth&quot;, nullable = false)
+    private LocalDate dateofbirth;
+
+    @Column(name = &quot;previousclubs&quot;)
+    private String previousclubs;
+
+    @Lob
+    @Column(name = &quot;image&quot;)
+    private byte[] image;
+
+    @Column(name = &quot;image_content_type&quot;)
+    private String imageContentType;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Job staffjob;
+
+    public Long getId() {
+<span class="fc" id="L57">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L61">        this.id = id;</span>
+<span class="fc" id="L62">    }</span>
+
+    public String getFullname() {
+<span class="fc" id="L65">        return fullname;</span>
+    }
+
+    public Staff fullname(String fullname) {
+<span class="fc" id="L69">        this.fullname = fullname;</span>
+<span class="fc" id="L70">        return this;</span>
+    }
+
+    public void setFullname(String fullname) {
+<span class="fc" id="L74">        this.fullname = fullname;</span>
+<span class="fc" id="L75">    }</span>
+
+    public Integer getPriority() {
+<span class="fc" id="L78">        return priority;</span>
+    }
+
+    public Staff priority(Integer priority) {
+<span class="fc" id="L82">        this.priority = priority;</span>
+<span class="fc" id="L83">        return this;</span>
+    }
+
+    public void setPriority(Integer priority) {
+<span class="fc" id="L87">        this.priority = priority;</span>
+<span class="fc" id="L88">    }</span>
+
+    public String getPlaceofbirth() {
+<span class="fc" id="L91">        return placeofbirth;</span>
+    }
+
+    public Staff placeofbirth(String placeofbirth) {
+<span class="fc" id="L95">        this.placeofbirth = placeofbirth;</span>
+<span class="fc" id="L96">        return this;</span>
+    }
+
+    public void setPlaceofbirth(String placeofbirth) {
+<span class="fc" id="L100">        this.placeofbirth = placeofbirth;</span>
+<span class="fc" id="L101">    }</span>
+
+    public LocalDate getDateofbirth() {
+<span class="fc" id="L104">        return dateofbirth;</span>
+    }
+
+    public Staff dateofbirth(LocalDate dateofbirth) {
+<span class="fc" id="L108">        this.dateofbirth = dateofbirth;</span>
+<span class="fc" id="L109">        return this;</span>
+    }
+
+    public void setDateofbirth(LocalDate dateofbirth) {
+<span class="fc" id="L113">        this.dateofbirth = dateofbirth;</span>
+<span class="fc" id="L114">    }</span>
+
+    public String getPreviousclubs() {
+<span class="fc" id="L117">        return previousclubs;</span>
+    }
+
+    public Staff previousclubs(String previousclubs) {
+<span class="fc" id="L121">        this.previousclubs = previousclubs;</span>
+<span class="fc" id="L122">        return this;</span>
+    }
+
+    public void setPreviousclubs(String previousclubs) {
+<span class="fc" id="L126">        this.previousclubs = previousclubs;</span>
+<span class="fc" id="L127">    }</span>
+
+    public byte[] getImage() {
+<span class="fc" id="L130">        return image;</span>
+    }
+
+    public Staff image(byte[] image) {
+<span class="fc" id="L134">        this.image = image;</span>
+<span class="fc" id="L135">        return this;</span>
+    }
+
+    public void setImage(byte[] image) {
+<span class="fc" id="L139">        this.image = image;</span>
+<span class="fc" id="L140">    }</span>
+
+    public String getImageContentType() {
+<span class="fc" id="L143">        return imageContentType;</span>
+    }
+
+    public Staff imageContentType(String imageContentType) {
+<span class="fc" id="L147">        this.imageContentType = imageContentType;</span>
+<span class="fc" id="L148">        return this;</span>
+    }
+
+    public void setImageContentType(String imageContentType) {
+<span class="fc" id="L152">        this.imageContentType = imageContentType;</span>
+<span class="fc" id="L153">    }</span>
+
+    public Job getStaffjob() {
+<span class="fc" id="L156">        return staffjob;</span>
+    }
+
+    public Staff staffjob(Job job) {
+<span class="nc" id="L160">        this.staffjob = job;</span>
+<span class="nc" id="L161">        return this;</span>
+    }
+
+    public void setStaffjob(Job job) {
+<span class="fc" id="L165">        this.staffjob = job;</span>
+<span class="fc" id="L166">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L170" title="All 2 branches covered.">        if (this == o) {</span>
+<span class="fc" id="L171">            return true;</span>
+        }
+<span class="fc bfc" id="L173" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L174">            return false;</span>
+        }
+<span class="fc" id="L176">        Staff staff = (Staff) o;</span>
+<span class="fc bfc" id="L177" title="All 4 branches covered.">        if (staff.getId() == null || getId() == null) {</span>
+<span class="fc" id="L178">            return false;</span>
+        }
+<span class="fc" id="L180">        return Objects.equals(getId(), staff.getId());</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L185">        return Objects.hashCode(getId());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L190">        return &quot;Staff{&quot; +</span>
+<span class="fc" id="L191">            &quot;id=&quot; + getId() +</span>
+<span class="fc" id="L192">            &quot;, fullname='&quot; + getFullname() + &quot;'&quot; +</span>
+<span class="fc" id="L193">            &quot;, priority='&quot; + getPriority() + &quot;'&quot; +</span>
+<span class="fc" id="L194">            &quot;, placeofbirth='&quot; + getPlaceofbirth() + &quot;'&quot; +</span>
+<span class="fc" id="L195">            &quot;, dateofbirth='&quot; + getDateofbirth() + &quot;'&quot; +</span>
+<span class="fc" id="L196">            &quot;, previousclubs='&quot; + getPreviousclubs() + &quot;'&quot; +</span>
+<span class="fc" id="L197">            &quot;, image='&quot; + getImage() + &quot;'&quot; +</span>
+            &quot;, imageContentType='&quot; + imageContentType + &quot;'&quot; +
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

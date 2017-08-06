@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ro"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Match.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Poli</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.myapp.domain</a> &gt; <span class="el_source">Match.java</span></div><h1>Match.java</h1><pre class="source lang-java linenums">package com.mycompany.myapp.domain;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.io.Serializable;
+import java.time.ZonedDateTime;
+import java.util.Objects;
+
+/**
+ * A Match.
+ */
+@Entity
+@Table(name = &quot;jhi_match&quot;)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+<span class="fc" id="L18">public class Match implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    @Column(name = &quot;hometeam&quot;, nullable = false)
+    private String hometeam;
+
+    @NotNull
+    @Column(name = &quot;awayteam&quot;, nullable = false)
+    private String awayteam;
+
+    @Column(name = &quot;homegoals&quot;)
+    private Integer homegoals;
+
+    @Column(name = &quot;awaygoals&quot;)
+    private Integer awaygoals;
+
+    @NotNull
+    @Column(name = &quot;location&quot;, nullable = false)
+    private String location;
+
+    @NotNull
+    @Column(name = &quot;description&quot;, nullable = false)
+    private String description;
+
+    @NotNull
+    @Column(name = &quot;matchdatetime&quot;, nullable = false)
+    private ZonedDateTime matchdatetime;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Competition matchcompetition;
+
+    public Long getId() {
+<span class="fc" id="L57">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L61">        this.id = id;</span>
+<span class="fc" id="L62">    }</span>
+
+    public String getHometeam() {
+<span class="fc" id="L65">        return hometeam;</span>
+    }
+
+    public Match hometeam(String hometeam) {
+<span class="fc" id="L69">        this.hometeam = hometeam;</span>
+<span class="fc" id="L70">        return this;</span>
+    }
+
+    public void setHometeam(String hometeam) {
+<span class="fc" id="L74">        this.hometeam = hometeam;</span>
+<span class="fc" id="L75">    }</span>
+
+    public String getAwayteam() {
+<span class="fc" id="L78">        return awayteam;</span>
+    }
+
+    public Match awayteam(String awayteam) {
+<span class="fc" id="L82">        this.awayteam = awayteam;</span>
+<span class="fc" id="L83">        return this;</span>
+    }
+
+    public void setAwayteam(String awayteam) {
+<span class="fc" id="L87">        this.awayteam = awayteam;</span>
+<span class="fc" id="L88">    }</span>
+
+    public Integer getHomegoals() {
+<span class="fc" id="L91">        return homegoals;</span>
+    }
+
+    public Match homegoals(Integer homegoals) {
+<span class="fc" id="L95">        this.homegoals = homegoals;</span>
+<span class="fc" id="L96">        return this;</span>
+    }
+
+    public void setHomegoals(Integer homegoals) {
+<span class="fc" id="L100">        this.homegoals = homegoals;</span>
+<span class="fc" id="L101">    }</span>
+
+    public Integer getAwaygoals() {
+<span class="fc" id="L104">        return awaygoals;</span>
+    }
+
+    public Match awaygoals(Integer awaygoals) {
+<span class="fc" id="L108">        this.awaygoals = awaygoals;</span>
+<span class="fc" id="L109">        return this;</span>
+    }
+
+    public void setAwaygoals(Integer awaygoals) {
+<span class="fc" id="L113">        this.awaygoals = awaygoals;</span>
+<span class="fc" id="L114">    }</span>
+
+    public String getLocation() {
+<span class="fc" id="L117">        return location;</span>
+    }
+
+    public Match location(String location) {
+<span class="fc" id="L121">        this.location = location;</span>
+<span class="fc" id="L122">        return this;</span>
+    }
+
+    public void setLocation(String location) {
+<span class="fc" id="L126">        this.location = location;</span>
+<span class="fc" id="L127">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L130">        return description;</span>
+    }
+
+    public Match description(String description) {
+<span class="fc" id="L134">        this.description = description;</span>
+<span class="fc" id="L135">        return this;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L139">        this.description = description;</span>
+<span class="fc" id="L140">    }</span>
+
+    public ZonedDateTime getMatchdatetime() {
+<span class="fc" id="L143">        return matchdatetime;</span>
+    }
+
+    public Match matchdatetime(ZonedDateTime matchdatetime) {
+<span class="fc" id="L147">        this.matchdatetime = matchdatetime;</span>
+<span class="fc" id="L148">        return this;</span>
+    }
+
+    public void setMatchdatetime(ZonedDateTime matchdatetime) {
+<span class="fc" id="L152">        this.matchdatetime = matchdatetime;</span>
+<span class="fc" id="L153">    }</span>
+
+    public Competition getMatchcompetition() {
+<span class="fc" id="L156">        return matchcompetition;</span>
+    }
+
+    public Match matchcompetition(Competition competition) {
+<span class="nc" id="L160">        this.matchcompetition = competition;</span>
+<span class="nc" id="L161">        return this;</span>
+    }
+
+    public void setMatchcompetition(Competition competition) {
+<span class="fc" id="L165">        this.matchcompetition = competition;</span>
+<span class="fc" id="L166">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L170" title="All 2 branches covered.">        if (this == o) {</span>
+<span class="fc" id="L171">            return true;</span>
+        }
+<span class="fc bfc" id="L173" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L174">            return false;</span>
+        }
+<span class="fc" id="L176">        Match match = (Match) o;</span>
+<span class="fc bfc" id="L177" title="All 4 branches covered.">        if (match.getId() == null || getId() == null) {</span>
+<span class="fc" id="L178">            return false;</span>
+        }
+<span class="fc" id="L180">        return Objects.equals(getId(), match.getId());</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L185">        return Objects.hashCode(getId());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L190">        return &quot;Match{&quot; +</span>
+<span class="fc" id="L191">            &quot;id=&quot; + getId() +</span>
+<span class="fc" id="L192">            &quot;, hometeam='&quot; + getHometeam() + &quot;'&quot; +</span>
+<span class="fc" id="L193">            &quot;, awayteam='&quot; + getAwayteam() + &quot;'&quot; +</span>
+<span class="fc" id="L194">            &quot;, homegoals='&quot; + getHomegoals() + &quot;'&quot; +</span>
+<span class="fc" id="L195">            &quot;, awaygoals='&quot; + getAwaygoals() + &quot;'&quot; +</span>
+<span class="fc" id="L196">            &quot;, location='&quot; + getLocation() + &quot;'&quot; +</span>
+<span class="fc" id="L197">            &quot;, description='&quot; + getDescription() + &quot;'&quot; +</span>
+<span class="fc" id="L198">            &quot;, matchdatetime='&quot; + getMatchdatetime() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

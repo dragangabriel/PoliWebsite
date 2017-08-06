@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ro"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>News.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Poli</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.myapp.domain</a> &gt; <span class="el_source">News.java</span></div><h1>News.java</h1><pre class="source lang-java linenums">package com.mycompany.myapp.domain;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.io.Serializable;
+import java.time.ZonedDateTime;
+import java.util.Objects;
+
+/**
+ * A News.
+ */
+@Entity
+@Table(name = &quot;news&quot;)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+<span class="fc" id="L18">public class News implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    @Column(name = &quot;title&quot;, nullable = false)
+    private String title;
+
+    @Lob
+    @Column(name = &quot;image&quot;)
+    private byte[] image;
+
+    @Column(name = &quot;image_content_type&quot;)
+    private String imageContentType;
+
+    @Column(name = &quot;video_url&quot;)
+    private String videoUrl;
+
+    @Column(name = &quot;external_url&quot;)
+    private String externalUrl;
+
+    @Column(name = &quot;created_date&quot;)
+    private ZonedDateTime createdDate;
+
+    @NotNull
+    @Lob
+    @Column(name = &quot;content&quot;, nullable = false)
+    private String content;
+
+    public Long getId() {
+<span class="fc" id="L52">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L56">        this.id = id;</span>
+<span class="fc" id="L57">    }</span>
+
+    public String getTitle() {
+<span class="fc" id="L60">        return title;</span>
+    }
+
+    public News title(String title) {
+<span class="fc" id="L64">        this.title = title;</span>
+<span class="fc" id="L65">        return this;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="fc" id="L69">        this.title = title;</span>
+<span class="fc" id="L70">    }</span>
+
+    public byte[] getImage() {
+<span class="fc" id="L73">        return image;</span>
+    }
+
+    public News image(byte[] image) {
+<span class="fc" id="L77">        this.image = image;</span>
+<span class="fc" id="L78">        return this;</span>
+    }
+
+    public void setImage(byte[] image) {
+<span class="fc" id="L82">        this.image = image;</span>
+<span class="fc" id="L83">    }</span>
+
+    public String getImageContentType() {
+<span class="fc" id="L86">        return imageContentType;</span>
+    }
+
+    public News imageContentType(String imageContentType) {
+<span class="fc" id="L90">        this.imageContentType = imageContentType;</span>
+<span class="fc" id="L91">        return this;</span>
+    }
+
+    public void setImageContentType(String imageContentType) {
+<span class="fc" id="L95">        this.imageContentType = imageContentType;</span>
+<span class="fc" id="L96">    }</span>
+
+    public String getVideoUrl() {
+<span class="fc" id="L99">        return videoUrl;</span>
+    }
+
+    public News videoUrl(String videoUrl) {
+<span class="fc" id="L103">        this.videoUrl = videoUrl;</span>
+<span class="fc" id="L104">        return this;</span>
+    }
+
+    public void setVideoUrl(String videoUrl) {
+<span class="fc" id="L108">        this.videoUrl = videoUrl;</span>
+<span class="fc" id="L109">    }</span>
+
+    public String getExternalUrl() {
+<span class="fc" id="L112">        return externalUrl;</span>
+    }
+
+    public News externalUrl(String externalUrl) {
+<span class="fc" id="L116">        this.externalUrl = externalUrl;</span>
+<span class="fc" id="L117">        return this;</span>
+    }
+
+    public void setExternalUrl(String externalUrl) {
+<span class="fc" id="L121">        this.externalUrl = externalUrl;</span>
+<span class="fc" id="L122">    }</span>
+
+    public ZonedDateTime getCreatedDate() {
+<span class="fc" id="L125">        return createdDate;</span>
+    }
+
+    public News createdDate(ZonedDateTime createdDate) {
+<span class="fc" id="L129">        this.createdDate = createdDate;</span>
+<span class="fc" id="L130">        return this;</span>
+    }
+
+    public void setCreatedDate(ZonedDateTime createdDate) {
+<span class="fc" id="L134">        this.createdDate = createdDate;</span>
+<span class="fc" id="L135">    }</span>
+
+    public String getContent() {
+<span class="fc" id="L138">        return content;</span>
+    }
+
+    public News content(String content) {
+<span class="fc" id="L142">        this.content = content;</span>
+<span class="fc" id="L143">        return this;</span>
+    }
+
+    public void setContent(String content) {
+<span class="fc" id="L147">        this.content = content;</span>
+<span class="fc" id="L148">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L152" title="All 2 branches covered.">        if (this == o) {</span>
+<span class="fc" id="L153">            return true;</span>
+        }
+<span class="fc bfc" id="L155" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L156">            return false;</span>
+        }
+<span class="fc" id="L158">        News news = (News) o;</span>
+<span class="fc bfc" id="L159" title="All 4 branches covered.">        if (news.getId() == null || getId() == null) {</span>
+<span class="fc" id="L160">            return false;</span>
+        }
+<span class="fc" id="L162">        return Objects.equals(getId(), news.getId());</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L167">        return Objects.hashCode(getId());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L172">        return &quot;News{&quot; +</span>
+<span class="fc" id="L173">            &quot;id=&quot; + getId() +</span>
+<span class="fc" id="L174">            &quot;, title='&quot; + getTitle() + &quot;'&quot; +</span>
+<span class="fc" id="L175">            &quot;, image='&quot; + getImage() + &quot;'&quot; +</span>
+            &quot;, imageContentType='&quot; + imageContentType + &quot;'&quot; +
+<span class="fc" id="L177">            &quot;, videoUrl='&quot; + getVideoUrl() + &quot;'&quot; +</span>
+<span class="fc" id="L178">            &quot;, externalUrl='&quot; + getExternalUrl() + &quot;'&quot; +</span>
+<span class="fc" id="L179">            &quot;, createdDate='&quot; + getCreatedDate() + &quot;'&quot; +</span>
+<span class="fc" id="L180">            &quot;, content='&quot; + getContent() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

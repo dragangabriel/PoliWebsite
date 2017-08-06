@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ro"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LeagueTable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Poli</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.myapp.domain</a> &gt; <span class="el_source">LeagueTable.java</span></div><h1>LeagueTable.java</h1><pre class="source lang-java linenums">package com.mycompany.myapp.domain;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import java.io.Serializable;
+import java.util.Objects;
+
+/**
+ * A LeagueTable.
+ */
+@Entity
+@Table(name = &quot;league_table&quot;)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+<span class="fc" id="L17">public class LeagueTable implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    @Column(name = &quot;position&quot;, nullable = false)
+    private Integer position;
+
+    @NotNull
+    @Column(name = &quot;teamname&quot;, nullable = false)
+    private String teamname;
+
+    @NotNull
+    @Column(name = &quot;played&quot;, nullable = false)
+    private Integer played;
+
+    @NotNull
+    @Column(name = &quot;wins&quot;, nullable = false)
+    private Integer wins;
+
+    @NotNull
+    @Column(name = &quot;draws&quot;, nullable = false)
+    private Integer draws;
+
+    @NotNull
+    @Column(name = &quot;losses&quot;, nullable = false)
+    private Integer losses;
+
+    @NotNull
+    @Column(name = &quot;goalsfor&quot;, nullable = false)
+    private Integer goalsfor;
+
+    @NotNull
+    @Column(name = &quot;goalsagainst&quot;, nullable = false)
+    private Integer goalsagainst;
+
+    @NotNull
+    @Column(name = &quot;points&quot;, nullable = false)
+    private Integer points;
+
+    @ManyToOne
+    private Competition leaguetablecompetition;
+
+    public Long getId() {
+<span class="fc" id="L65">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L69">        this.id = id;</span>
+<span class="fc" id="L70">    }</span>
+
+    public Integer getPosition() {
+<span class="fc" id="L73">        return position;</span>
+    }
+
+    public LeagueTable position(Integer position) {
+<span class="fc" id="L77">        this.position = position;</span>
+<span class="fc" id="L78">        return this;</span>
+    }
+
+    public void setPosition(Integer position) {
+<span class="fc" id="L82">        this.position = position;</span>
+<span class="fc" id="L83">    }</span>
+
+    public String getTeamname() {
+<span class="fc" id="L86">        return teamname;</span>
+    }
+
+    public LeagueTable teamname(String teamname) {
+<span class="fc" id="L90">        this.teamname = teamname;</span>
+<span class="fc" id="L91">        return this;</span>
+    }
+
+    public void setTeamname(String teamname) {
+<span class="fc" id="L95">        this.teamname = teamname;</span>
+<span class="fc" id="L96">    }</span>
+
+    public Integer getPlayed() {
+<span class="fc" id="L99">        return played;</span>
+    }
+
+    public LeagueTable played(Integer played) {
+<span class="fc" id="L103">        this.played = played;</span>
+<span class="fc" id="L104">        return this;</span>
+    }
+
+    public void setPlayed(Integer played) {
+<span class="fc" id="L108">        this.played = played;</span>
+<span class="fc" id="L109">    }</span>
+
+    public Integer getWins() {
+<span class="fc" id="L112">        return wins;</span>
+    }
+
+    public LeagueTable wins(Integer wins) {
+<span class="fc" id="L116">        this.wins = wins;</span>
+<span class="fc" id="L117">        return this;</span>
+    }
+
+    public void setWins(Integer wins) {
+<span class="fc" id="L121">        this.wins = wins;</span>
+<span class="fc" id="L122">    }</span>
+
+    public Integer getDraws() {
+<span class="fc" id="L125">        return draws;</span>
+    }
+
+    public LeagueTable draws(Integer draws) {
+<span class="fc" id="L129">        this.draws = draws;</span>
+<span class="fc" id="L130">        return this;</span>
+    }
+
+    public void setDraws(Integer draws) {
+<span class="fc" id="L134">        this.draws = draws;</span>
+<span class="fc" id="L135">    }</span>
+
+    public Integer getLosses() {
+<span class="fc" id="L138">        return losses;</span>
+    }
+
+    public LeagueTable losses(Integer losses) {
+<span class="fc" id="L142">        this.losses = losses;</span>
+<span class="fc" id="L143">        return this;</span>
+    }
+
+    public void setLosses(Integer losses) {
+<span class="fc" id="L147">        this.losses = losses;</span>
+<span class="fc" id="L148">    }</span>
+
+    public Integer getGoalsfor() {
+<span class="fc" id="L151">        return goalsfor;</span>
+    }
+
+    public LeagueTable goalsfor(Integer goalsfor) {
+<span class="fc" id="L155">        this.goalsfor = goalsfor;</span>
+<span class="fc" id="L156">        return this;</span>
+    }
+
+    public void setGoalsfor(Integer goalsfor) {
+<span class="fc" id="L160">        this.goalsfor = goalsfor;</span>
+<span class="fc" id="L161">    }</span>
+
+    public Integer getGoalsagainst() {
+<span class="fc" id="L164">        return goalsagainst;</span>
+    }
+
+    public LeagueTable goalsagainst(Integer goalsagainst) {
+<span class="fc" id="L168">        this.goalsagainst = goalsagainst;</span>
+<span class="fc" id="L169">        return this;</span>
+    }
+
+    public void setGoalsagainst(Integer goalsagainst) {
+<span class="fc" id="L173">        this.goalsagainst = goalsagainst;</span>
+<span class="fc" id="L174">    }</span>
+
+    public Integer getPoints() {
+<span class="fc" id="L177">        return points;</span>
+    }
+
+    public LeagueTable points(Integer points) {
+<span class="fc" id="L181">        this.points = points;</span>
+<span class="fc" id="L182">        return this;</span>
+    }
+
+    public void setPoints(Integer points) {
+<span class="fc" id="L186">        this.points = points;</span>
+<span class="fc" id="L187">    }</span>
+
+    public Competition getLeaguetablecompetition() {
+<span class="fc" id="L190">        return leaguetablecompetition;</span>
+    }
+
+    public LeagueTable leaguetablecompetition(Competition competition) {
+<span class="nc" id="L194">        this.leaguetablecompetition = competition;</span>
+<span class="nc" id="L195">        return this;</span>
+    }
+
+    public void setLeaguetablecompetition(Competition competition) {
+<span class="nc" id="L199">        this.leaguetablecompetition = competition;</span>
+<span class="nc" id="L200">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L204" title="All 2 branches covered.">        if (this == o) {</span>
+<span class="fc" id="L205">            return true;</span>
+        }
+<span class="fc bfc" id="L207" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="fc" id="L208">            return false;</span>
+        }
+<span class="fc" id="L210">        LeagueTable leagueTable = (LeagueTable) o;</span>
+<span class="fc bfc" id="L211" title="All 4 branches covered.">        if (leagueTable.getId() == null || getId() == null) {</span>
+<span class="fc" id="L212">            return false;</span>
+        }
+<span class="fc" id="L214">        return Objects.equals(getId(), leagueTable.getId());</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L219">        return Objects.hashCode(getId());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L224">        return &quot;LeagueTable{&quot; +</span>
+<span class="fc" id="L225">            &quot;id=&quot; + getId() +</span>
+<span class="fc" id="L226">            &quot;, position='&quot; + getPosition() + &quot;'&quot; +</span>
+<span class="fc" id="L227">            &quot;, teamname='&quot; + getTeamname() + &quot;'&quot; +</span>
+<span class="fc" id="L228">            &quot;, played='&quot; + getPlayed() + &quot;'&quot; +</span>
+<span class="fc" id="L229">            &quot;, wins='&quot; + getWins() + &quot;'&quot; +</span>
+<span class="fc" id="L230">            &quot;, draws='&quot; + getDraws() + &quot;'&quot; +</span>
+<span class="fc" id="L231">            &quot;, losses='&quot; + getLosses() + &quot;'&quot; +</span>
+<span class="fc" id="L232">            &quot;, goalsfor='&quot; + getGoalsfor() + &quot;'&quot; +</span>
+<span class="fc" id="L233">            &quot;, goalsagainst='&quot; + getGoalsagainst() + &quot;'&quot; +</span>
+<span class="fc" id="L234">            &quot;, points='&quot; + getPoints() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
