@@ -16,10 +16,10 @@
                 <div class="row margin-bottom-05 text-center">
                     <div class="col-md-4"><label>{{match.hometeam}}</label></div>
                     <div class="col-md-4">{{match.homegoals}} : {{match.awaygoals}}</div>
-                    <div class="col-md-4"><label>{{match.awayteam}}</label></div>
+                    <div class="col-md-4"><label>{{match.awayteam}}</label></div>                    
                 </div>
                 <div class="row text-center margin-top-10">
-                    Stadion {{match.location}}. {{match.matchdatetime | date:'dd/MM/yyyy HH:mm'}}
+                    Stadion {{match.location}}. <strong> {{match.matchdatetime | date:'dd/MM/yyyy HH:mm'}}</strong>
                 </div>
             </div>
             <div class="col-md-12">
