@@ -18,7 +18,7 @@
         function loadLast3News() {
             News.query({
                 size: 3,
-                sort: ['id,desc']
+                sort: ['createdDate,desc']
             }, onSuccess, onError);
 
             function onSuccess(data, headers) {
@@ -61,7 +61,7 @@
         }
 
         $scope.setFontWeight = function (team) {
-            if (team.teamname == 'Politehnica București') {
+            if (team.teamname == 'ACSU POLI BUCUREȘTI') {
                 return { fontWeight: "bold" }
             }
         }
@@ -77,7 +77,7 @@
                 var position = -1;
 
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].teamname == 'Politehnica București')
+                    if (data[i].teamname == 'ACSU POLI BUCUREȘTI')
                         position = i;
                 }
 

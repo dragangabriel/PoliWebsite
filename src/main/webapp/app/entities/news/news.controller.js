@@ -28,7 +28,7 @@
                 sort: sort()
             }, onSuccess, onError);
             function sort() {
-                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                var result = [vm.predicate + ',' + (vm.reverse ? 'desc' : 'asc')];
                 if (vm.predicate !== 'id') {
                     result.push('id');
                 }
@@ -54,7 +54,7 @@
         function transition() {
             $state.transitionTo($state.$current, {
                 page: vm.page,
-                sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
+                sort: vm.predicate + ',' + (vm.reverse ? 'desc' : 'asc'),
                 search: vm.currentSearch
             });
         }

@@ -96,7 +96,7 @@
 
         <div class="form-group">
             <label for="field_matchcompetition">Competiție</label>
-            <select class="form-control" id="field_matchcompetition" name="matchcompetition" ng-model="vm.match.matchcompetition" ng-options="competition as competition.id for competition in vm.competitions track by competition.id" required>
+            <select class="form-control" id="field_matchcompetition" name="matchcompetition" ng-model="vm.match.matchcompetition" ng-options="competition as competition.name for competition in vm.competitions track by competition.id" required>
             </select>
         </div>
         <div ng-show="editForm.matchcompetition.$invalid">

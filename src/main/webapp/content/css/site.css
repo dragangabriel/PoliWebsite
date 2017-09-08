@@ -92,6 +92,7 @@ footer {
 .clickableNews:hover {
   cursor: pointer;
   opacity: 0.5;
+  display: inline-block;
 }
 
 .imgPartner {
@@ -174,9 +175,12 @@ Browser Upgrade Prompt
 /* ==========================================================================
 Logo styles
 ========================================================================== */
- .logo-img {
-    height: 15vh;
-    display: inline-block; }
+ .logo-imgXS {
+    height: 10vh;
+    max-width: 100%; }
+
+    .logo-img {
+    width: 100vw; }
 
 /* ==========================================================================
 Main page styles

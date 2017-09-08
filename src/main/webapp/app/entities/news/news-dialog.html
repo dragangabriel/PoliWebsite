@@ -59,12 +59,7 @@
         <div class="form-group">
             <label class="control-label" for="field_content">Content</label>
             <div id="summernote"></div>
-            <textarea style="display:none;" class="form-control" name="content" id="field_content" ng-model="vm.news.content" required></textarea>
-            <div ng-show="editForm.content.$invalid">
-                <p class="help-block" ng-show="editForm.content.$error.required">
-                    This field is required.
-                </p>
-            </div>
+            <textarea style="display:none;" class="form-control" name="content" id="field_content" ng-model="vm.news.content"></textarea>
         </div>
 
     </div>
@@ -72,7 +67,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
-        <button id="saveId" type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button id="saveId" type="submit" ng-disabled="vm.isSaving" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
         </button>
     </div>
@@ -85,7 +80,7 @@
         });
 
         $("#summernote").summernote({ height: 200 });
-        $("#summernote").summernote('code', $("#field_content").val());
+        $("#summernote").summernote('code', $("#field_content").val());        
     });
 
 </script>
