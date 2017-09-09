@@ -47,7 +47,7 @@
         }
 
         $scope.setFontWeight = function (team) {
-            if (team.teamname == 'Politehnica București') {
+            if (team.teamname == 'ACSU POLI BUCUREȘTI') {
                 return { fontWeight: "bold" }
             }
         }

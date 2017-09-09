@@ -197,7 +197,7 @@
                         </li>
                     </ul>
                 </li>
-                <li id="xxx" ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer" style="display:none">
+                <li ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
                         <span>
                             <span class="glyphicon glyphicon-user"></span>
@@ -232,12 +232,12 @@
                                 <span>Conectare</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" ng-switch-when="false">
+                <!--        <li ui-sref-active="active" ng-switch-when="false">
                             <a ui-sref="register" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
                                 <span>Înregistrare</span>
                             </a>
-                        </li>
+                        </li>-->
                     </ul>
                 </li>
                 <!--<li ng-class="{active: vm.$state.includes('admin')}" ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
