@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 text-center" ng-repeat="player in vm.players | orderBy:'priority'" ng-show="player.playerposition.name ==  'Portar'">
             <a ng-if="player.image" ng-click="vm.showPlayerDetails(player)">
-                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-circle img-thumbnail" style="max-height:10em"
+                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-thumbnail" style="max-height:10em"
                     alt="player image" />
             </a>
             <h4>{{player.shirtno}}. {{player.fullname}}</h4>
@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 text-center" ng-repeat="player in vm.players | orderBy:'priority'" ng-show="player.playerposition.name ==  'Fundas'">
             <a ng-if="player.image" ng-click="vm.showPlayerDetails(player)">
-                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-circle img-thumbnail" style="max-height:10em"
+                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-thumbnail" style="max-height:10em"
                     alt="player image" />
             </a>
             <h4>{{player.shirtno}}. {{player.fullname}}</h4>
@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 text-center" ng-repeat="player in vm.players | orderBy:'priority'" ng-show="player.playerposition.name ==  'Mijlocas'">
             <a ng-if="player.image" ng-click="vm.showPlayerDetails(player)">
-                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-circle img-thumbnail" style="max-height:10em"
+                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-thumbnail" style="max-height:10em"
                     alt="player image" />
             </a>
             <h4>{{player.shirtno}}. {{player.fullname}}</h4>
@@ -45,7 +45,7 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 text-center" ng-repeat="player in vm.players | orderBy:'priority'" ng-show="player.playerposition.name ==  'Atacant'">
             <a ng-if="player.image" ng-click="vm.showPlayerDetails(player)">
-                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-circle img-thumbnail" style="max-height:10em"
+                <img data-ng-src="{{'data:' + player.imageContentType + ';base64,' + player.image}}" class="img-thumbnail" style="max-height:10em"
                     alt="player image" />
             </a>
             <h4>{{player.shirtno}}. {{player.fullname}}</h4>
